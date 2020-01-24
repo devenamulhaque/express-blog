@@ -1,0 +1,10 @@
+@layout('layouts.layout')
+
+@section('page-content')
+    <h1 class="my-4">Page Heading
+        <small>Secondary Text</small>
+    </h1>
+    @each(post in posts)
+        @!component('components.postcard', title=post.title, body=post.body)
+    @endeach
+@endsection
