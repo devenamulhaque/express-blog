@@ -1,7 +1,11 @@
 const express = require('express')
 const app = express()
 const { config, engine } = require('express-edge')
-const axios = require('axios')
+const articles = require('./routes/articles')
+const aboutPage = require('./routes/pages')
+
+// Low DB
+const db = require('./utils/db')
 
 config({ cache: process.env.NODE_ENV === 'production' })
 app.use(engine)
@@ -13,10 +17,11 @@ app.use(express.urlencoded({ extended: true }))
 // static file
 app.use(express.static('public'))
 
-app.get('/', async (req, res) => {
-    let { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    res.render('index', { posts })
-})
+// Artcles
+app.use(articles)
+
+// pages
+app.use(aboutPage)
 
 const port = process.env.port || 3000
 app.listen(port, () => {

@@ -1,10 +1,8 @@
 @layout('layouts.layout')
 
 @section('page-content')
-    <h1 class="my-4">Page Heading
-        <small>Secondary Text</small>
-    </h1>
-    @each(post in posts)
-        @!component('components.postcard', title=post.title, body=post.body)
+    <h1 class="my-4">Home page</h1>
+    @each(post in articleList.toJSON())
+        @!component('components.postcard', title=post.title, body=post.body, category=post.category, id=post.id)
     @endeach
 @endsection
