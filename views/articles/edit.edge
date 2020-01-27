@@ -2,7 +2,7 @@
 
 @section('page-content')
     <h1 class="my-4">Create new article</h1>
-    <form class="mb-4" action="/" method="POST">
+    <form class="mb-4" action="/articles/{{post.id}}" method="POST">
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Write title" name="title" value="{{post.title}}">

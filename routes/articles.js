@@ -11,7 +11,7 @@ Router.get('/articles/create', createArticle)
 Router.get('/articles/:id', singleArticle)
 
 // Edit article
-Router.put('/edit/:id', editArticle)
+Router.get('/edit/:id', editArticle)
 
 // New article post request
 Router.post('/', postArticle)
